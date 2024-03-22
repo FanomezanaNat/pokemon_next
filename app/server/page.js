@@ -6,19 +6,20 @@ export default async function page() {
   const details = await FetchDetails();
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Pokemon List</h1>
+    <div className="container mx-auto flex flex-col">
+      <h1 className="text-3xl font- my-4  text-center">Pokemon List</h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {details.map((pokemon, index) => (
           <li
             key={index}
-            className="bg-grey shadow-md rounded-lg overflow-hidden"
-          >
+            className="bg-slate-800 shadow-md rounded-lg overflow-hidden flex flex-col item"
+          ><div>
             <img
               src={pokemon.sprites.front_default}
               alt={`Pokemon ${index + 1}`}
-              className="w-full"
+              className="w-48 items-center"
             />
+          </div>
             <div className="p-4 flex flex-col items-center">
               <p className="text-xl font-semibold mb-2 text-center">
                 {pokemon.name}
@@ -32,6 +33,7 @@ export default async function page() {
           </li>
         ))}
       </ul>
-    </div>
+      </div>
+     
   );
 }

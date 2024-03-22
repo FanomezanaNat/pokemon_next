@@ -3,17 +3,17 @@ import Link from "next/link";
 import UsePokemonDetails from "@/components/hooks/UsePokemonDetails";
 
 export default function page() {
-  const { pokemonDetailsUrl,pokemonList } = UsePokemonDetails();
+  const { pokemonDetailsUrl, pokemonList } = UsePokemonDetails();
   return (
     <div className="container mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Pokemon List</h1>
+      <h1 className="text-3xl font-bold my-4  text-center">Pokemon List</h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {pokemonDetailsUrl.map((pokemon, id) => (
-          <li key={id} className="bg-grey shadow-md rounded-lg overflow-hidden">
+          <li key={id} className="bg-slate-800 shadow-md rounded-lg overflow-hidden flex flex-col items-center">
             <img
               src={`${pokemon.sprites.front_default}`}
               alt={`pokemon ${id + 1}`}
-              className="w-full"
+              className="w-48"
             />
             <div className="p-4 flex flex-col items-center">
               <p className="text-xl font-semibold mb-2 text-center">
